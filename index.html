@@ -42,6 +42,13 @@
       font-size: 14px;
       margin-top: 10px;
     }
+    .qr-section {
+      margin-top: 50px;
+    }
+    .qr-section img {
+      width: 260px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
@@ -49,18 +56,25 @@
   <h1>ChatGPT Plus 代充值</h1>
   <p>📧 提供邮箱 → 微信联系 → ✅ 完成充值</p>
 
-  <!-- 按钮 -->
+  <!-- 主按钮 -->
   <a href="javascript:void(0);" id="wechat-button" class="btn">
     📱 点击联系微信客服
   </a>
 
-  <!-- 弹窗 -->
+  <!-- 弹窗：微信二维码 -->
   <div id="wechat-popup">
-    <img src="wechat-qr.png" alt="微信二维码">
+    <img src="wechat-qr.png" alt="微信客服二维码">
     <p>扫一扫添加微信客服</p>
   </div>
 
-  <!-- JS 放到底部，保证 DOM 加载完成后绑定事件 -->
+  <!-- 付款二维码展示 -->
+  <div class="qr-section">
+    <h3>🎯 请扫码支付 209 元</h3>
+    <p style="color: gray;">完成后请通过微信发送您的邮箱地址</p>
+    <img src="pay-209.png" alt="微信付款二维码">
+  </div>
+
+  <!-- 脚本绑定按钮事件 -->
   <script>
     window.onload = function () {
       const popup = document.getElementById('wechat-popup');
@@ -70,7 +84,6 @@
         popup.style.display = 'block';
       });
 
-      // 可选：点击页面空白关闭弹窗
       window.addEventListener('click', function (event) {
         if (!popup.contains(event.target) && event.target !== button) {
           popup.style.display = 'none';
