@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>ChatGPT Plus 代充值服务</title>
+  <title>ChatGPT Plus 代充值</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -57,12 +57,12 @@
   <p>📧 提供邮箱 → 🔄 微信联系 → ✅ 完成充值</p>
 
   <!-- 主按钮：点击弹出二维码 -->
-  <a href="javascript:void(0);" class="btn" onclick="wechatPopup.style.display='block'">
+  <a href="javascript:void(0);" class="btn" onclick="document.getElementById('wechat-popup').style.display='block'">
     📱 点击联系微信客服
   </a>
 
   <!-- 微信悬浮按钮 -->
-  <div id="wechat-float" onclick="wechatPopup.style.display='block'">
+  <div id="wechat-float" onclick="document.getElementById('wechat-popup').style.display='block'">
     <img src="wechat-icon.png" width="48" alt="微信客服">
   </div>
 
