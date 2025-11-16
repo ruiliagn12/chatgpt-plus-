@@ -3,15 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <title>ChatGPT Plus 代充</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
-    .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
-    h1 { color: #333; }
-    .qr-section { display: flex; gap: 20px; margin-bottom: 30px; }
-    .qr-box { text-align: center; flex: 1; }
-    .qr-box img { width: 200px; border: 1px solid #ccc; padding: 5px; background: #fff; }
-    iframe { border: 1px solid #ccc; width: 100%; height: 500px; border-radius: 8px; }
-    .record-title { font-size: 1.2em; margin-bottom: 10px; color: #444; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h1 {
+      color: #333;
+    }
+    .qr-section {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .qr-box {
+      text-align: center;
+      flex: 1 1 200px;
+    }
+    .qr-box img {
+      width: 180px;
+      max-width: 100%;
+      border: 1px solid #ccc;
+      padding: 5px;
+      background: #fff;
+    }
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .form-box, .record-section {
+      flex: 1 1 300px;
+      min-width: 280px;
+    }
+    iframe {
+      border: 1px solid #ccc;
+      width: 100%;
+      border-radius: 8px;
+    }
+    .form-box iframe {
+      height: 350px;
+    }
+    .record-section iframe {
+      height: 450px;
+    }
+    .record-title {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      color: #444;
+    }
   </style>
 </head>
 <body>
@@ -28,14 +81,16 @@
       </div>
     </div>
 
-    <div class="form-box">
-      <p class="record-title">请填写充值登记表单（付款后务必填写）：</p>
-      <iframe src="https://baserow.io/form/Ev91QBP7d4j23KqT8iwluVXhUQQCqo5ByENturu23T8" frameborder="0"></iframe>
-    </div>
+    <div class="main-content">
+      <div class="form-box">
+        <p class="record-title">请填写充值登记表单（付款后务必填写）：</p>
+        <iframe src="https://baserow.io/form/Ev91QBP7d4j23KqT8iwluVXhUQQCqo5ByENturu23T8" frameborder="0"></iframe>
+      </div>
 
-    <div class="record-section" style="margin-top: 40px;">
-      <p class="record-title">充值记录展示：</p>
-      <iframe src="https://baserow.io/public/grid/nX18wFKDt0KB_PpVF7fbNhrAYH4hLr9Rjv7YgQkLp8s" frameborder="0" height="600"></iframe>
+      <div class="record-section">
+        <p class="record-title">近期充值记录：</p>
+        <iframe src="https://baserow.io/public/grid/nX18wFKDt0KB_PpVF7fbNhrAYH4hLr9Rjv7YgQkLp8s" frameborder="0"></iframe>
+      </div>
     </div>
   </div>
 </body>
