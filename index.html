@@ -21,66 +21,62 @@
       display: inline-block;
       margin-top: 20px;
     }
-    #wechat-float {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      z-index: 9999;
-      cursor: pointer;
-    }
     #wechat-popup {
       display: none;
       position: fixed;
-      bottom: 140px;
-      right: 20px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       background: white;
       padding: 10px;
       border: 1px solid #ccc;
       z-index: 10000;
       text-align: center;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
     #wechat-popup img {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
     }
     #wechat-popup p {
-      margin-top: 10px;
       font-size: 14px;
-      color: #333;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>ChatGPT Plus 代充值</h1>
-  <p>安全稳定 / 无需密码 / 快速到账</p>
-  <p>📧 提供邮箱 → 🔄 微信联系 → ✅ 完成充值</p>
 
-  <!-- 主按钮：点击弹出二维码 -->
-  <a href="javascript:void(0);" class="btn" onclick="document.getElementById('wechat-popup').style.display='block'">
+  <h1>ChatGPT Plus 代充值</h1>
+  <p>📧 提供邮箱 → 微信联系 → ✅ 完成充值</p>
+
+  <!-- 按钮 -->
+  <a href="javascript:void(0);" id="wechat-button" class="btn">
     📱 点击联系微信客服
   </a>
 
-  <!-- 微信悬浮按钮 -->
-  <div id="wechat-float" onclick="document.getElementById('wechat-popup').style.display='block'">
-    <img src="wechat-icon.png" width="48" alt="微信客服">
-  </div>
-
-  <!-- 微信二维码弹窗 -->
+  <!-- 弹窗 -->
   <div id="wechat-popup">
     <img src="wechat-qr.png" alt="微信二维码">
     <p>扫一扫添加微信客服</p>
   </div>
 
+  <!-- JS 放到底部，保证 DOM 加载完成后绑定事件 -->
   <script>
-    // 点击页面空白处关闭弹窗
-    window.addEventListener('click', function(event) {
+    window.onload = function () {
       const popup = document.getElementById('wechat-popup');
-      const button = document.getElementById('wechat-float');
-      if (!popup.contains(event.target) && !button.contains(event.target)) {
-        popup.style.display = 'none';
-      }
-    });
+      const button = document.getElementById('wechat-button');
+
+      button.addEventListener('click', function () {
+        popup.style.display = 'block';
+      });
+
+      // 可选：点击页面空白关闭弹窗
+      window.addEventListener('click', function (event) {
+        if (!popup.contains(event.target) && event.target !== button) {
+          popup.style.display = 'none';
+        }
+      });
+    };
   </script>
 
   <p style="margin-top: 60px; font-size: 0.8em; color: gray;">
